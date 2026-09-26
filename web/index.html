@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ứng dụng ECO2432</title>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+  <style>
+    body{font-family:system-ui,sans-serif;max-width:680px;margin:40px auto;padding:0 18px;color:#172033}
+    button,input{font:inherit;padding:10px 12px;margin:5px 3px 5px 0} #status{min-height:1.5em;color:#1d4ed8}
+  </style>
+</head>
+<body>
+  <h1>Két tiết kiệm của nhóm</h1>
+  <button id="btnConnect">Kết nối ví</button>
+  <p>Ví: <span id="account">chưa kết nối</span></p>
+  <p>Số dư trong két: <span id="vaultBalance">-</span> ETH</p>
+  <input id="amount" type="number" step="0.001" placeholder="Số ETH muốn nạp">
+  <button id="btnDeposit">Nạp tiền</button>
+  <button id="btnWithdraw">Rút tiền</button>
+  <p id="status"></p>
+<script>
+const CONTRACT_ADDRESS = "0x................................";
+const CONTRACT_ABI = [];
+let provider, signer, contract;
+const statusNode = document.getElementById("status");
+const setStatus = (message) => { statusNode.textContent = message; };
+async function refresh() {
+  const balance = await provider.getBalance(CONTRACT_ADDRESS);
+  document.getElementById("vaultBalance").textContent = ethers.formatEther(balance);
+}
+document.getElementById("btnConnect").onclick = async () => {
+  if (!window.ethereum) return alert("Chưa cài MetaMask");
+  provider = new ethers.BrowserProvider(window.ethereum);
+  await provider.send("eth_requestAccounts", []);
+  signer = await provider.getSigner();
+  contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+  document.getElementById("account").textContent = await signer.getAddress();
+  await refresh();
+};
+document.getElementById("btnDeposit").onclick = async () => {
+  try {
+    const value = document.getElementById("amount").value;
+    const tx = await contract.deposit({value: ethers.parseEther(value)});
+    setStatus("Đang chờ xác nhận..."); await tx.wait(); setStatus("Đã nạp: " + tx.hash); await refresh();
+  } catch (error) { setStatus(error.shortMessage || error.message); }
+};
+document.getElementById("btnWithdraw").onclick = async () => {
+  try {
+    const tx = await contract.withdraw(); setStatus("Đang chờ xác nhận...");
+    await tx.wait(); setStatus("Đã rút: " + tx.hash); await refresh();
+  } catch (error) { setStatus(error.shortMessage || error.message); }
+};
+</script>
+</body>
+</html>

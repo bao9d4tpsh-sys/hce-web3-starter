@@ -1,0 +1,8 @@
+{
+  "name": "hce-web3-starter",
+  "private": true,
+  "description": "ECO2432 starter kit. Optional: run npm install so local editors resolve OpenZeppelin imports; Remix IDE resolves them automatically.",
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0"
+  }
+}
