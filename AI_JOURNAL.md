@@ -37,4 +37,40 @@ Chỉ trả lời dựa trên mã nguồn tôi cung cấp. Nếu không tìm th�
    - *Cách sửa:* Sinh viên hiệu chỉnh lại: trong hợp đồng thông minh Web3, một token phi tập trung hoàn toàn (không có `Ownable`, không có backdoor) mới là mức độ an toàn tối thượng trước sự can thiệp của bên thứ ba.
    - *Ai phát hiện:* **Sinh viên phát hiện.**
 
+---
+
+## Lab 06: Sinh mã bằng AI và kiểm tra kết quả
+
+### Lần 1 — Yêu cầu AI sinh mã Python phân tích dòng tiền từ SPEC.md
+**Prompt (dán nguyên văn):**
+```text
+Đọc tệp SPEC.md trong dự án và viết chương trình Python thực hiện đúng đặc tả đó.
+Tuân thủ các quy ước trong AGENTS.md.
+Trước khi viết mã, tóm tắt lại cách bạn hiểu yêu cầu để tôi xác nhận.
+```
+
+**AI trả về (tóm tắt):**
+- Tóm tắt cách hiểu các quy tắc dòng tiền vào/ra cơ bản.
+- Sinh ra đoạn mã Python dùng thư viện `requests` để lấy giao dịch từ Etherscan và vẽ đồ thị `matplotlib`.
+
+**Đánh giá:** ⚠️ Phải sửa (Phát hiện 3 lỗi nghiêm trọng trong danh mục 6 điểm kiểm tra bắt buộc).
+
+---
+
+### Bảng rà soát 6 điểm kiểm tra bắt buộc (Checklist Lab 06)
+
+| # | Hạng mục kiểm tra | Cách kiểm tra | Kết quả mã AI sinh ra ban đầu | Đánh giá & Cách khắc phục | Ai phát hiện |
+| :-: | :--- | :--- | :--- | :--- | :---: |
+| **1** | **Đơn vị tiền** | Kiểm tra số dư hiển thị có chia $10^{18}$ không | ✅ Đã chia cho $10^{18}$ để đổi từ Wei sang ETH. | Đạt yêu cầu. | AI tự nhận |
+| **2** | **Khóa API** | Tìm chuỗi khóa API trong mã nguồn | ❌ AI khởi tạo biến: `ETHERSCAN_API_KEY = "YourApiKeyTokenHere"` ghi cứng trong mã. | **Vi phạm quy tắc bảo mật `AGENTS.md`.** Sinh viên sửa lại: dùng `os.environ.get("ETHERSCAN_API_KEY")` để đọc từ biến môi trường. | **Sinh viên phát hiện** |
+| **3** | **Phân trang** | Kiểm tra ví có nhiều hơn 10.000 tx | ⚠️ AI chỉ gọi 1 request với `offset=10000`, không có vòng lặp `while True` với `page += 1`. | Thiếu dữ liệu nếu ví có nhiều giao dịch. Sinh viên bổ sung vòng lặp phân trang tự động. | **Sinh viên phát hiện** |
+| **4** | **Giao dịch thất bại** | Có tính phí gas của giao dịch thất bại không | ❌ AI viết: `if tx['isError'] == '0': ... else: continue` $\rightarrow$ Bỏ qua hoàn toàn giao dịch lỗi! | **Lỗi nghiệp vụ tài chính nghiêm trọng:** Giao dịch lỗi tuy không chuyển được tiền nhưng **vẫn bị trừ phí gas**. Sinh viên sửa lại: thêm nhánh `FAILED_FEE`, cộng phí gas của giao dịch lỗi vào dòng tiền ra (`total_outflow`). | **Sinh viên phát hiện** |
+| **5** | **Xử lý lỗi** | Thử nhập API key sai hoặc ngắt mạng | ❌ Chương trình crash với lỗi `KeyError: 'result'` do không kiểm tra `status == "1"`. | **Vi phạm quy tắc `AGENTS.md`.** Sinh viên bổ sung bước kiểm tra mã phản hồi HTTP (`status == 200`) và mã trạng thái JSON của Etherscan trước khi đọc trường `result`. | **Sinh viên phát hiện** |
+| **6** | **Phiên bản API** | Đối chiếu tài liệu Etherscan hiện hành | ⚠️ AI dùng endpoint v1 cũ và không có độ trễ giữa các trang truy vấn, gây lỗi HTTP 429 khi vượt 5 req/s. | Sinh viên cập nhật endpoint chuẩn `api-sepolia.etherscan.io`, thêm `time.sleep(0.25)` giữa các trang truy vấn để tuân thủ Rate Limit. | **Sinh viên phát hiện** |
+
+### Tổng kết bài học Lab 06:
+- Tỷ lệ lỗi AI mắc phải: 3 lỗi sai/thiếu nghiêm trọng (Khóa API, Giao dịch thất bại, Xử lý lỗi).
+- Bài học cốt lõi: AI có thể gõ cú pháp rất nhanh, nhưng **lỗi logic nghiệp vụ tài chính** (như bỏ quên phí gas của giao dịch thất bại) chỉ có con người am hiểu sâu sắc quy tắc kinh tế mới phát hiện và chấn chỉnh được.
+
+
 
