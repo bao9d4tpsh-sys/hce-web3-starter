@@ -4,7 +4,7 @@
 
 ---
 
-## 📌 Bảng tiến độ thực hành (Lab 01 – Lab 05)
+## 📌 Bảng tiến độ thực hành (Lab 01 – Lab 07)
 
 | Bài Lab | Tên bài thực hành | Sản phẩm nộp trên GitHub | Trạng thái | Mã Commit |
 | :---: | :--- | :--- | :---: | :--- |
@@ -13,6 +13,8 @@
 | **Lab 03** | Đọc giao dịch & hợp đồng Etherscan | [`forensics.md`](forensics.md) / [`lab03.md`](lab03.md) | ✅ Hoàn thành | [`44c9904`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/44c9904) |
 | **Lab 04** | Nhận diện hợp đồng có rủi ro | [`lab04.md`](lab04.md) & [`AI_JOURNAL.md`](AI_JOURNAL.md) | ✅ Hoàn thành | [`30065eb`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/30065eb) |
 | **Lab 05** | Viết đặc tả cho công cụ phân tích dòng tiền | [`SPEC.md`](SPEC.md) & [`lab05.md`](lab05.md) | ✅ Hoàn thành | [`293c843`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/293c843) |
+| **Lab 06** | Sinh mã bằng AI & kiểm tra kết quả | [`cashflow_analyzer.py`](cashflow_analyzer.py) & [`lab06.md`](lab06.md) | ✅ Hoàn thành | [`4512baa`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/4512baa) |
+| **Lab 07** | Triển khai hợp đồng đầu tiên | [`lab07.md`](lab07.md) & [`AI_JOURNAL.md`](AI_JOURNAL.md) | ✅ Hoàn thành | Đang cập nhật |
 
 ---
 

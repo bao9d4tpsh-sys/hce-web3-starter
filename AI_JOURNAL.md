@@ -72,5 +72,45 @@ Trước khi viết mã, tóm tắt lại cách bạn hiểu yêu cầu để t�
 - Tỷ lệ lỗi AI mắc phải: 3 lỗi sai/thiếu nghiêm trọng (Khóa API, Giao dịch thất bại, Xử lý lỗi).
 - Bài học cốt lõi: AI có thể gõ cú pháp rất nhanh, nhưng **lỗi logic nghiệp vụ tài chính** (như bỏ quên phí gas của giao dịch thất bại) chỉ có con người am hiểu sâu sắc quy tắc kinh tế mới phát hiện và chấn chỉnh được.
 
+---
+
+## Lab 07: Triển khai hợp đồng TimeLockVault lên Sepolia
+
+### Lần 1 — Hỏi AI về sự khác biệt giữa `immutable`, `constant` và biến thông thường
+**Prompt (dán nguyên văn):**
+```text
+Trong hợp đồng TimeLockVault, tại sao owner và unlockTime được khai báo immutable
+thay vì constant hay biến trạng thái thông thường? Ảnh hưởng đến gas như thế nào?
+```
+
+**AI trả về (tóm tắt):**
+- `constant`: Giá trị phải biết ngay **lúc viết mã** (compile-time), lưu thẳng vào bytecode.
+- `immutable`: Giá trị được gán **một lần duy nhất trong constructor** (run-time), sau đó nhúng vào bytecode, không chiếm slot storage.
+- Biến thông thường: Lưu vào storage (tốn 20,000 gas SSTORE lần đầu).
+
+**Đánh giá:** ✅ Dùng được ngay.
+
+**Bài học rút ra:** Với các giá trị như `owner` và `unlockTime` chỉ biết khi deploy (do phụ thuộc `msg.sender` và `block.timestamp`), `immutable` là lựa chọn tối ưu: tiết kiệm gas như `constant` nhưng linh hoạt hơn.
+
+---
+
+### Lần 2 — Hỏi AI về lý do dùng `call` thay `transfer` khi chuyển ETH
+**Prompt (dán nguyên văn):**
+```text
+Tại sao hàm withdraw() trong TimeLockVault dùng call{value: amount}("") thay vì
+payable(owner).transfer(amount)? Có rủi ro gì nếu dùng transfer?
+```
+
+**AI trả về (tóm tắt):**
+- `transfer()` giới hạn cứng 2,300 gas — đủ để nhận ETH vào ví EOA, nhưng **thiếu gas** nếu địa chỉ nhận là một hợp đồng thông minh có logic trong `receive()` hoặc `fallback()`.
+- Sau EIP-1884 (Istanbul hard fork, 2019), một số opcode tăng chi phí gas, khiến `transfer()` dễ revert hơn với hợp đồng thông minh.
+- `call{value}` không giới hạn gas, linh hoạt hơn, nhưng phải **bắt buộc kiểm tra** giá trị `bool ok` trả về.
+
+**Đánh giá:** ✅ Dùng được, xác nhận đúng với lý do trong AGENTS.md.
+
+**Chỗ AI bổ sung thêm cần xác minh:** AI đề xuất thêm cơ chế "reentrancy guard" cho hàm `withdraw()`. Sinh viên kiểm tra lại: `TimeLockVault` không có rủi ro reentrancy vì toàn bộ số dư rút một lần (`amount = address(this).balance`), không có vòng lặp và trạng thái đã "effect" hoàn toàn trước khi gọi `call`. **AI đề xuất thừa** trong trường hợp này.
+
+**Ai phát hiện:** Sinh viên phát hiện và bác bỏ đề xuất không cần thiết của AI.
+
 
 
