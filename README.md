@@ -1,8 +1,19 @@
-# ECO2432 Web3 Starter
+# ECO2432 Web3 Starter — Sinh viên: Bao (`bao9d4tpsh-sys`)
 
-Kho khởi đầu dùng xuyên suốt 15 bài thực hành.
+**Kho lưu trữ GitHub cá nhân:** [https://github.com/bao9d4tpsh-sys/hce-web3-starter](https://github.com/bao9d4tpsh-sys/hce-web3-starter)
 
-## Bắt đầu (thay cho bước "Fork kho" trong sổ tay)
+---
+
+## 📌 Bảng tiến độ thực hành (Lab 01 – Lab 04)
+
+| Bài Lab | Tên bài thực hành | Sản phẩm nộp trên GitHub | Trạng thái | Mã Commit |
+| :---: | :--- | :--- | :---: | :--- |
+| **Lab 01** | Chuẩn bị môi trường làm việc | [`lab01.md`](lab01.md) | ✅ Hoàn thành | [`1ddd501`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/1ddd501b98bb83f0793d9c016ec5294bc5b3a2f1) |
+| **Lab 02** | Ví và giao dịch đầu tiên | [`lab02.md`](lab02.md) | ✅ Hoàn thành | [`34d31c6`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/34d31c6) |
+| **Lab 03** | Đọc giao dịch & hợp đồng Etherscan | [`forensics.md`](forensics.md) / [`lab03.md`](lab03.md) | ✅ Hoàn thành | [`44c9904`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/44c9904) |
+| **Lab 04** | Nhận diện hợp đồng có rủi ro | [`lab04.md`](lab04.md) & [`AI_JOURNAL.md`](AI_JOURNAL.md) | ✅ Hoàn thành | [`30065eb`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/30065eb) |
+
+---
 
 Sổ tay ghi "Fork kho `hce-web3-starter`". Học kỳ này kho được phát dạng tệp nén, nên làm như sau:
 

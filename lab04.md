@@ -1,6 +1,9 @@
 # BÁO CÁO THỰC HÀNH LAB 04: NHẬN DIỆN HỢP ĐỒNG CÓ RỦI RO
 **Học phần:** Tiền điện tử & Hợp đồng thông minh (ECO2432)  
-**Tệp mã nguồn thẩm định:** [`contracts/lab04/ClubTokens.sol`](file:///c:/Users/Bao/Downloads/hce-web3-starter/hce-web3-starter/contracts/lab04/ClubTokens.sol)  
+**Kho lưu trữ GitHub:** [https://github.com/bao9d4tpsh-sys/hce-web3-starter](https://github.com/bao9d4tpsh-sys/hce-web3-starter)  
+**Tệp trên GitHub:** [`lab04.md`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/blob/main/lab04.md)  
+**Tệp mã nguồn thẩm định:** [`contracts/lab04/ClubTokens.sol`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/blob/main/contracts/lab04/ClubTokens.sol)  
+**Đường dẫn Commit trên GitHub:** [Commit 30065eb](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/30065eb)  
 **Mục tiêu:** Rèn luyện kỹ năng của Chuyên viên thẩm định rủi ro tài sản số (Smart Contract Risk Auditor), nhận diện các điều khoản bất lợi/lừa đảo trong mã nguồn và trích dẫn số dòng cụ thể làm bằng chứng.
 
 ---

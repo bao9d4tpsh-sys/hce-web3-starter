@@ -1,6 +1,9 @@
 # BÁO CÁO THỰC HÀNH LAB 03: ĐỌC GIAO DỊCH VÀ HỢP ĐỒNG TRÊN ETHERSCAN
 **Tệp nộp bài:** `forensics.md`  
 **Học phần:** Tiền điện tử & Hợp đồng thông minh (ECO2432)  
+**Kho lưu trữ GitHub:** [https://github.com/bao9d4tpsh-sys/hce-web3-starter](https://github.com/bao9d4tpsh-sys/hce-web3-starter)  
+**Tệp trên GitHub:** [`forensics.md`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/blob/main/forensics.md)  
+**Đường dẫn Commit trên GitHub:** [Commit 44c9904](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/44c9904)  
 **Mục tiêu:** Mổ xẻ 10 trường dữ liệu cốt lõi của giao dịch on-chain phục vụ nghiệp vụ Kế toán/Tuân thủ (AML); phân biệt Bytecode và Verified Source Code; phân tích hàm Đọc/Ghi và cơ chế kiểm soát tập trung (Blacklist/Freeze) trong các hợp đồng tiền ổn định giá (USDT, USDC).
 
 ---

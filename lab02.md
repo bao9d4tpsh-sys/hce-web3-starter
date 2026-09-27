@@ -1,5 +1,8 @@
 # BÁO CÁO THỰC HÀNH LAB 02: VÍ VÀ GIAO DỊCH ĐẦU TIÊN
 **Học phần:** Tiền điện tử & Hợp đồng thông minh (ECO2432)  
+**Kho lưu trữ GitHub:** [https://github.com/bao9d4tpsh-sys/hce-web3-starter](https://github.com/bao9d4tpsh-sys/hce-web3-starter)  
+**Tệp trên GitHub:** [`lab02.md`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/blob/main/lab02.md)  
+**Đường dẫn Commit trên GitHub:** [Commit 34d31c6](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/34d31c6)  
 **Mục tiêu:** Nắm vững cấu trúc giao dịch, cơ chế tính phí gas, nguyên nhân thất bại ở tầng Client vs. tầng On-chain, và nguyên tắc kế toán / tuân thủ trong Web3.
 
 ---
