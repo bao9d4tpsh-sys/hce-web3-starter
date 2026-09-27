@@ -189,6 +189,7 @@ def analyze_cashflow(address, txs, current_balance=0.0):
     if base_balance < 0:
         base_balance = 0.0 # Phong truong hop vi khong lay duoc online balance
 
+    # Khoi tao cumulative truoc vong lap de tranh UnboundLocalError khi records rong
     cumulative = base_balance
     timestamps = []
     balances = []
@@ -203,10 +204,11 @@ def analyze_cashflow(address, txs, current_balance=0.0):
         "records": records,
         "total_inflow": total_inflow,
         "total_outflow": total_outflow,
-        "ending_balance": cumulative,
+        "ending_balance": cumulative,  # Luon co gia tri hop le du records rong
         "timestamps": timestamps,
         "balances": balances
     }
+
 
 def print_report(summary, records):
     # In bao cao dong tien dang bang
