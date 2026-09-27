@@ -9,6 +9,7 @@ import json
 import urllib.request
 import urllib.error
 from datetime import datetime, timezone
+# pyrefly: ignore [missing-import]
 import matplotlib.pyplot as plt
 
 # Hang so quy doi don vi
