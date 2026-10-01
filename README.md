@@ -1,4 +1,4 @@
-# ECO2432 Web3 Starter — Sinh viên: Bao (`bao9d4tpsh-sys`)
+# ECO2432 Web3 Starter — Sinh viên: Lại Vương Gia Bảo - 23K4300024  (`bao9d4tpsh-sys`)
 
 **Kho lưu trữ GitHub cá nhân:** [https://github.com/bao9d4tpsh-sys/hce-web3-starter](https://github.com/bao9d4tpsh-sys/hce-web3-starter)
 
