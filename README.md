@@ -1,4 +1,4 @@
-# ECO2432 Web3 Starter — Sinh viên: Lại Vương Gia Bảo - 23K4300024  (`bao9d4tpsh-sys`)
+# ECO2432 Web3 Starter — Sinh viên: Lại Vương Gia Bảo - 23K4300024 (`bao9d4tpsh-sys`)
 
 **Kho lưu trữ GitHub cá nhân:** [https://github.com/bao9d4tpsh-sys/hce-web3-starter](https://github.com/bao9d4tpsh-sys/hce-web3-starter)
 
@@ -14,7 +14,7 @@
 | **Lab 04** | Nhận diện hợp đồng có rủi ro | [`lab04.md`](lab04.md) & [`AI_JOURNAL.md`](AI_JOURNAL.md) | ✅ Hoàn thành | [`30065eb`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/30065eb) |
 | **Lab 05** | Viết đặc tả cho công cụ phân tích dòng tiền | [`SPEC.md`](SPEC.md) & [`lab05.md`](lab05.md) | ✅ Hoàn thành | [`293c843`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/293c843) |
 | **Lab 06** | Sinh mã bằng AI & kiểm tra kết quả | [`cashflow_analyzer.py`](cashflow_analyzer.py) & [`lab06.md`](lab06.md) | ✅ Hoàn thành | [`4512baa`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/4512baa) |
-| **Lab 07** | Triển khai hợp đồng đầu tiên | [`lab07.md`](lab07.md) & [`AI_JOURNAL.md`](AI_JOURNAL.md) | ✅ Hoàn thành | Đang cập nhật |
+| **Lab 07** | Triển khai hợp đồng đầu tiên | [`lab07.md`](lab07.md) & [`AI_JOURNAL.md`](AI_JOURNAL.md) | ✅ Hoàn thành | [`527be32`](https://github.com/bao9d4tpsh-sys/hce-web3-starter/commit/527be32) |
 
 ---
 
